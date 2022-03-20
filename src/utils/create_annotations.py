@@ -14,7 +14,7 @@ def get_coco_json_format():
     }
     return coco_format
 
-def create_annotation_format(image_id, category_id, annotation_id, polygon, segmentation):
+def create_annotation_format(polygon, segmentation, image_id, category_id, annotation_id):
     '''
     src: https://docs.trainingdata.io/v1.0/Export%20Format/COCO/
     '''
@@ -54,6 +54,8 @@ def create_category_annotation(category_dict):
             "id": value,
             "name": key
         }
+        category_list.append(category)
+        
     return category_list
 
 def create_sub_masks(mask_image, width, height):
