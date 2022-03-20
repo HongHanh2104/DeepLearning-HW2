@@ -1,0 +1,58 @@
+id: ResNet50
+pretrained: null
+seed: 2104
+model:
+    name: BaseClassifier
+    args:
+        extractor_cfg: 
+            name: ResNetExtractor
+            args:
+                version: resnet50
+        nclasses: 2
+optimizer:
+    name: Adam
+    args:
+loss:
+    name: CrossEntropyLoss
+    args:
+metric:
+    - name: Accuracy
+      args:
+scheduler:
+    name: ReduceLROnPlateau
+    args:
+        mode: min
+        factor: 0.5
+        patience: 100000
+        verbose: True
+dataset:
+    train:
+        name: ChickenDataset
+        args:
+            root: data/sample_classification
+            normal_path: normal
+            defect_path: defect
+            is_train: True
+        loader:
+            name: DataLoader
+            args:
+                batch_size: 64
+                shuffle: True
+                pin_memory: True
+    val:
+        name: ChickenDataset
+        args:
+            csv_path: data/sample_classification
+            normal_path: normal
+            defect_path: defect
+            is_train: False
+        loader:
+            name: DataLoader
+            args:
+                batch_size: 256
+                pin_memory: True
+trainer:
+    nepochs: 100
+    val_step: 1
+    log_step: 1
+    log_dir: checkpoints/cls
