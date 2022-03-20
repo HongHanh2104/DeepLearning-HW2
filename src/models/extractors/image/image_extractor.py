@@ -1,7 +1,7 @@
 from torch.nn import functional as F
 
-from torchan.utils import getter
-from torchan.models.extractors.extractor import Extractor
+from src.utils import getter
+from src.models.extractors.extractor import Extractor
 
 __all__ = ['ImageMaskExtractor']
 

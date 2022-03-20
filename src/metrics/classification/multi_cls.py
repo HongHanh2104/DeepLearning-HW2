@@ -1,6 +1,6 @@
 import torch
 
-from torchan.utils import getter
+from src.utils import getter
 
 __all__ = ['MultiClsMetric']
 

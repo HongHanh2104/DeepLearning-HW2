@@ -42,7 +42,7 @@ dataset:
     val:
         name: ChickenDataset
         args:
-            csv_path: data/sample_classification
+            root: data/sample_classification
             normal_path: normal
             defect_path: defect
             is_train: False

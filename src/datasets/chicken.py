@@ -40,7 +40,6 @@ class ChickenDataset:
         lbl = self.label[i]
         img = Image.open(data).convert('RGB')
         img = self.transforms(img)
-        print(img.shape)
         return img, lbl
 
     def __len__(self):
