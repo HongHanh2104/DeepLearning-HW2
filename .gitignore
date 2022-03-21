@@ -130,3 +130,6 @@ dmypy.json
 data/
 runs/
 *.pth
+checkpoints/cls/ResNet18-2022_03_21-21_16_37/
+cls_results/
+seg_results/

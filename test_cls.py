@@ -21,10 +21,7 @@ import csv
 
 def crop_object(image, box):
     
-    x_top_left = box[0]
-    y_top_left = box[1]
-    x_bottom_right = box[2]
-    y_bottom_right = box[3]
+    x_top_left, y_top_left, x_bottom_right, y_bottom_right = box[0], box[1], box[2], box[3]
 
     crop_img = image.crop((
         int(x_top_left), int(y_top_left),
